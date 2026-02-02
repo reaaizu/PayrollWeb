@@ -1,12 +1,14 @@
-// Simple smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
   });
-});
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
 
-// Example interaction (future-ready)
-console.log("Apex Office Solutions website loaded.");
+function scrollToServices() {
+  document.getElementById('services')
+    .scrollIntoView({ behavior: 'smooth' });
+}
+
+showPage('home');
